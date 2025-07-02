@@ -1,0 +1,28 @@
+/my-next-app
+├── public/                  # Static assets (images, fonts, icons)
+/pages                      # Next.js page-based routing
+│   ├── api/                 # API routes (serverless functions)
+│   ├── _app.js              # Custom App component (global styles, providers)
+│   ├── index.js             # Homepage
+│   └── ...other pages
+├── components/              # Reusable UI components
+│   ├── Button.js
+│   ├── Header.js
+│   └── ...
+├── hooks/                   # Custom React hooks
+│   └── useAuth.js
+├── context/                 # React Context providers (e.g., auth, theme)
+│   └── AuthContext.js
+├── lib/                     # Library/util functions (API clients, helpers)
+│   ├── openai.js            # OpenAI API setup
+│   └── stabilityAI.js       # Stability API setup
+├── styles/                  # Global and component CSS/SCSS modules
+│   ├── globals.css
+│   └── Button.module.css
+├── utils/                   # Utility functions
+│   └── formatDate.js
+├── config/                  # Config files (env vars, constants)
+│   └── index.js
+├── middleware.js            # Optional middleware for routing/auth
+├── .env.local               # Environment variables (API keys, secrets)
+└── next.config.js           # Next.js config file
