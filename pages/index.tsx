@@ -4,10 +4,22 @@ import PromptForm from "@/components/PromptForm";
 export default function Home() {
   const [result, setResult] = useState("");
 
-  const handleGenerate = (prompt: string, tone: string) => {
-    console.log("Prompt:", prompt, "Tone:", tone);
-    // we will hook up the GPT call here next
-    setResult(`Generated content for "${prompt}" in tone "${tone}"`);
+  const handleGenerate = async (prompt: string, tone: string) => {
+    setResult("Generating...");
+
+    try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt, tone }),
+      });
+
+      const data = await res.json();
+      setResult(data.result);
+    } catch (err) {
+      console.error(err);
+      setResult("Something went wrong.");
+    }
   };
 
   return (
